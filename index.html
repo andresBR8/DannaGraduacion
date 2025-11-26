@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graduación Danna Ortuño Romero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content fade-in-up">
+        <span class="sub-headline">CLASE DE 2025</span>
+        <h1 class="graduate-name">Danna Ortuño Romero</h1>
+        <p class="invitation-text">Acompáñanos a celebrar este gran momento</p>
+        <div class="scroll-indicator">
+          <span>&#8595;</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Invitation Details -->
+    <section class="details section-padding">
+      <div class="container">
+        <div class="ornament-top"></div>
+        <h2 class="section-title">Fiesta de Graduación</h2>
+        <p class="honor-text">- EN HONOR A NUESTRA QUERIDA HIJA -</p>
+
+        <div class="date-time-card">
+          <div class="date-group">
+            <span class="day">SÁBADO</span>
+            <span class="date-number">13</span>
+            <span class="month">DICIEMBRE 2025</span>
+          </div>
+          <div class="divider-vertical"></div>
+          <div class="time-group">
+            <span class="time-label">HORA</span>
+            <span class="time">3:00 PM</span>
+          </div>
+        </div>
+
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Graduación+Danna+Ortuño+Romero&dates=20251213T150000/20251213T230000&details=Fiesta+de+graduación+en+honor+a+Danna.&location=Salón+de+eventos+VERONA,+Colcapirua,+Bolivia&sf=true&output=xml"
+          target="_blank" class="btn-calendar">
+          Agendar en Google Calendar
+        </a>
+
+        <!-- Countdown -->
+        <div id="countdown" class="countdown">
+          <div class="countdown-item">
+            <span id="days">00</span>
+            <span class="label">Días</span>
+          </div>
+          <div class="countdown-item">
+            <span id="hours">00</span>
+            <span class="label">Hs</span>
+          </div>
+          <div class="countdown-item">
+            <span id="minutes">00</span>
+            <span class="label">Min</span>
+          </div>
+          <div class="countdown-item">
+            <span id="seconds">00</span>
+            <span class="label">Seg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location section-padding">
+      <div class="container">
+        <h2 class="section-title">Ubicación</h2>
+        <div class="venue-card">
+          <h3>Salón de Eventos VERONA</h3>
+          <p>Colcapirua, Bolivia</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+eventos+VERONA+Colcapirua+Bolivia"
+            target="_blank" class="btn-map">
+            Ver en Mapa
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="gallery section-padding">
+      <div class="container">
+        <h2 class="section-title">Momentos</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item item-1">
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop" alt="Graduation Moment 1" loading="lazy">
+          </div>
+          <div class="gallery-item item-2">
+            <img src="https://images.unsplash.com/photo-1627556704290-2b1f5853bf78?q=80&w=2069&auto=format&fit=crop" alt="Graduation Moment 2" loading="lazy">
+          </div>
+          <div class="gallery-item item-3">
+            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=2070&auto=format&fit=crop" alt="Graduation Moment 3" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp section-padding">
+      <div class="container">
+        <h2 class="section-title">Confirmar Asistencia</h2>
+        <p>Esperamos contar con tu grata presencia.</p>
+        <a href="https://wa.me/?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20graduación%20de%20Danna."
+          target="_blank" class="btn-rsvp">
+          Confirmar por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Music Control -->
+    <button id="music-toggle" class="music-btn" aria-label="Toggle Music">
+      <span class="icon">🎵</span>
+    </button>
+    <audio id="bg-music" loop>
+      <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_1f62b3e55a.mp3?filename=inspiring-cinematic-ambient-116199.mp3" type="audio/mpeg">
+    </audio>
+
+    <footer>
+      <p>Con amor, la familia Ortuño Romero</p>
+    </footer>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
