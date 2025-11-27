@@ -30,26 +30,75 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 
 // Animations with GSAP
-gsap.from(".hero-content", {
-  duration: 1.5,
-  y: 50,
-  opacity: 0,
-  ease: "power3.out",
-  delay: 0.5
-});
+// Hero Parallax & Reveal
+const tl = gsap.timeline();
 
+tl.to(".hero-bg", {
+  scale: 1,
+  duration: 10,
+  ease: "power1.inOut"
+}, 0);
+
+tl.from(".sub-headline", {
+  y: 30,
+  opacity: 0,
+  duration: 1.2,
+  ease: "power3.out"
+}, 0.5);
+
+tl.from(".graduate-name", {
+  y: 40,
+  opacity: 0,
+  duration: 1.5,
+  ease: "power3.out"
+}, 0.8);
+
+tl.from(".invitation-text", {
+  y: 20,
+  opacity: 0,
+  duration: 1.2,
+  ease: "power3.out"
+}, 1.1);
+
+tl.from(".scroll-indicator", {
+  y: -20,
+  opacity: 0,
+  duration: 1,
+  ease: "bounce.out",
+  onComplete: () => {
+    gsap.to(".scroll-indicator", {
+      y: 10,
+      repeat: -1,
+      yoyo: true,
+      duration: 1.5,
+      ease: "sine.inOut"
+    });
+  }
+}, 1.5);
+
+// Scroll Animations (Elegant Reveal)
 gsap.utils.toArray("section").forEach(section => {
   gsap.from(section.children, {
     scrollTrigger: {
       trigger: section,
-      start: "top 80%",
+      start: "top 85%", // Trigger slightly earlier
       toggleActions: "play none none reverse"
     },
-    y: 50,
+    y: 60,
     opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: "power3.out"
+    duration: 1.2,
+    stagger: 0.15, // Smooth stagger
+    ease: "power4.out" // Elegant ease
+  });
+});
+
+// Gallery Hover Effect (JS-assisted for smoothness)
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    gsap.to(item.querySelector('img'), { scale: 1.1, duration: 0.5, ease: "power2.out" });
+  });
+  item.addEventListener('mouseleave', () => {
+    gsap.to(item.querySelector('img'), { scale: 1, duration: 0.5, ease: "power2.out" });
   });
 });
 

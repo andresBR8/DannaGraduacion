@@ -59,8 +59,21 @@ h3 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
     padding: 0 20px;
+    overflow: hidden;
+    /* For parallax effect */
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    z-index: 0;
+    transform: scale(1.1);
+    /* Initial scale for zoom effect */
 }
 
 .overlay {
@@ -78,6 +91,31 @@ h3 {
     position: relative;
     z-index: 2;
     max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.school-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .sub-headline {
@@ -100,6 +138,7 @@ h3 {
     color: transparent;
     animation: shine 3s infinite linear;
     /* Gold shine effect */
+    text-shadow: 0px 4px 10px rgba(191, 149, 63, 0.3);
 }
 
 .invitation-text {
@@ -113,9 +152,25 @@ h3 {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    animation: bounce 2s infinite;
     font-size: 2rem;
     color: var(--accent-color);
+    z-index: 10;
+    opacity: 0;
+    /* Hidden initially, revealed by GSAP */
+    cursor: pointer;
+}
+
+/* Ensure hero content doesn't push down too far on small screens */
+@media (max-height: 700px) {
+    .hero-content {
+        margin-top: -60px;
+        /* Pull up more on short screens */
+    }
+
+    .scroll-indicator {
+        bottom: 15px;
+        font-size: 1.5rem;
+    }
 }
 
 /* Details Section */
@@ -260,23 +315,34 @@ h3 {
 /* Gallery */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
+    /* Single column for panoramic impact */
     gap: 20px;
     margin-top: 40px;
+    max-width: 900px;
+    /* Wider container for panoramic */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid rgba(212, 175, 55, 0.3);
-    height: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.item-group {
+    height: 400px;
+    /* Taller for panoramic detail */
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.8s ease;
 }
 
@@ -314,9 +380,17 @@ h3 {
 }
 
 @keyframes pulse-music {
-    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    }
 }
 
 /* RSVP */
